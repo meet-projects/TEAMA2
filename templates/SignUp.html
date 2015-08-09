@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>
-    Homepage where u sign up 
+    Sign up
   </title>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='SignUpStyle.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
   
   
 </head>
@@ -16,14 +16,32 @@
 
 <!-- sign up:: -->
 
-<form action="Home_page2.html" method="GET">
+<form action="{{url_for('after_sign_in')}}" method="post">
 <h2> Sign up: </h2>
-username: <input type="text", name="un"> <br>
-password: <input type="password", name="ps"> <br>
-re-enter password: <input type="password", name="r-ps"> <br>
+<table>
+<tr><td>
+username:</td> <td><input type="text", name="username"> 
+</td></tr>
+<tr><td>
+password:</td> <td><input type="password", name="password"> 
+</td> </tr>
+<tr><td>
+re-enter password:</td> <td> <input type="password", name="r-ps">
+</td></tr>
+<tr><td>
+email:</td> <td> <input type="email", name="email">
+</td> </tr>
+<tr><td>
+name:</td> <td> <input type="text", name="name">
+</td> </tr>
 
 
-Birth-Date: <select name="DOBMonth">
+
+<tr><td>
+Birth-Date:
+</td> 
+<td>
+<select name="DOBMonth">
 	<option> - Month - </option>
 	<option value="January">January</option>
 	<option value="Febuary">Febuary</option>
@@ -125,9 +143,16 @@ Birth-Date: <select name="DOBMonth">
 	<option value="1947">1947</option>
 	
 </select>
+</td></tr>
+</table>
 <br>
 <input type="submit" value="sign-up">
+
+
 </form>
+<a href="{{url_for('main')}}">Cancel</a>
+
+
 
 
 </body>
