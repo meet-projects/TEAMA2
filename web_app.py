@@ -12,7 +12,9 @@ app = Flask(__name__)
 
 
 #YOUR WEB APP CODE GOES HERE
-
+@app.route('/')
+def main():
+    return render_template('main_page.html')
 
 
 
