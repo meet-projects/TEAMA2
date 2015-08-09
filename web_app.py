@@ -20,6 +20,11 @@ def main():
 def signup():
 	return render_template('SignUp.html')
 
+@app.route('/home/')
+def after_sign_in():
+    groups = session.query(Group).all()
+    return render_template('after_sign_in.html',groups=groups)
+
 
 
 
