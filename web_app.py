@@ -24,7 +24,7 @@ def signup():
 def after_sign_in():
     if request.method == 'GET':
             return render_template('SignUp.html')
-    else
+    else:
         _name = request.form['name']
         _password = request.form['password']
         _username = request.form['usename']
