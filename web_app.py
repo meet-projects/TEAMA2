@@ -16,6 +16,10 @@ app = Flask(__name__)
 def main():
     return render_template('main_page.html')
 
+@app.route('/signup/')
+def signup():
+	return render_template('SignUp.html')
+
 
 
 
