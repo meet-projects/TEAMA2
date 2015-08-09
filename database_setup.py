@@ -8,7 +8,7 @@ Base = declarative_base()
 #PLACE YOUR TABLE SETUP INFORMATION HERE
 
 class User(Base):
-	_tablename_= 'user'
+	__tablename__= 'user'
 	id = Column(Integer,primary_key=True)
 	name = Column(String(60))
 	username = Column(String(60))
@@ -19,7 +19,7 @@ class User(Base):
 	birthyear = Column(Integer)
 
 class Post(Base):
-        _tablename_='post'
+        __tablename__='post'
         id = Column(Integer,primary_key=True)
         group_id = Column(Integer, ForeignKey('group.id'))
         group= relationship(Group)
@@ -29,7 +29,7 @@ class Post(Base):
         
 
 class Group(Base):
-        _tablename_= 'group'
+        __tablename__= 'group'
         id = Column(Integer,primary_key=True)
         name = Column(String(50))
         picture = Column(String)
