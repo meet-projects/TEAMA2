@@ -1,14 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request,redirect,url_for
 app = Flask(__name__)
 
 # SQLAlchemy stuff
-#from database_setup import Base Person <--- Import your tables here!!
-#from sqlalchemy import create_engine
-#from sqlalchemy.orm import sessionmaker
-#engine = create_engine('sqlite:///crudlab.db')
-#Base.metadata.bind = engine
-#DBSession = sessionmaker(bind=engine)
-#session = DBSession()
+from database_setup import Base, User, Post, Group 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+engine = create_engine('sqlite:///crudlab.db')
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
 
 
 #YOUR WEB APP CODE GOES HERE
@@ -20,10 +20,26 @@ def main():
 def signup():
 	return render_template('SignUp.html')
 
-@app.route('/home/')
+@app.route('/home/', methods = ['GET','POST'])
 def after_sign_in():
-    groups = session.query(Group).all()
-    return render_template('after_sign_in.html',groups=groups)
+    if request.method == 'GET':
+            return render_template('SignUp.html')
+    else
+        _name = request.form['name']
+        _password = request.form['password']
+        _username = request.form['usename']
+        _email = request.form['email']
+        _birthday = request.form['DOBDay']
+        _birthmonth = request.form['DOBMonth']
+        _brithyear = request.form['DOBYear']
+
+        user = User(name = _name,password = _password,username = _username,email = _email,birthday = _birthday,birthmonth = _birthmonth,birthyear = _birthyear)
+        session.add(user)
+        session.commit()
+        return redirect(url_for('after_sign_in'))
+    
+    
+    
 
 
 
