@@ -1,0 +1,13 @@
+<html>
+<head> 
+<title> {{n}} Group </title>
+Welcome to the {{n}} Group!
+</head>
+
+<body>
+{% for post in posts %}
+<p>{{post.content}}<p>
+{% endfor %}
+
+</body>
+</html>
