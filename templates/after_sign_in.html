@@ -3,37 +3,38 @@
 <title>Personal Home Page </title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='after_sign_in.css') }}">
 </head>
-<<<<<<< HEAD
+
 <body>
 <div id = "upper_div">
-<form id = "form1" action = {{url_for('search')}} method = 'post'>
+<form id = "form1" action = "{{url_for('after_sign_in',user_id = 0)}}" method = 'post'>
 
-<input id = "text1" type = "text">
+<input name = "text1" id = "text1" type = "text" placeholder = "search">
 <input id = "submit" type = "submit" value = "search"> 
 </form>
 </div>
 <div>
 <table>
-{% x = 0 %}
+
 {% for group in groups %}
-{% if i % 3 == 0 %}
+
 <tr> 
-{% endif %}
+
 <td>
+<a href = "{{url_for('group_page',name = group.name)}}">{{group.name}} </a>
 
 </td>
-{% if i % 3 == 0 %}
+
 </tr>
-{% endif %}
-{% i = i+1 %}
+
+
 {% endfor %}
 </table>
 </div>
-=======
-
-<body>
 
 
->>>>>>> 694800c6d2bf851f16f88a6869ecb668bc63c7ed
+
+
+
+
 </body>
 </html>
