@@ -63,7 +63,9 @@ def search():
     
 @app.route('/group/<string:name>/')
 def group_page(name):
-    return render_template("group_page.html",n=name)
+	group_id = session.query(Group).filter_by(name = name).id
+	posts = session.query(Post).filter_by(group_id = group_id)
+    	return render_template("group_page.html",n=name,posts=posts)
     
     
     
