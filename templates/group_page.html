@@ -1,24 +1,37 @@
 <html>
 <head> 
 <title> {{n}} Group </title>
-<link rel=stylesheet type=text/css href="../static/group_page.css">
+<style type"text/css">
+h1{text-align:center}
+#div1{width:100%; background-color:#55ff55; height: 100px;padding-top:10px}
+h2{text-align:center}
+#div2{padding-left:90%}
+body{background-color:silver}
+#div3{margin:auto;width:300px;text-align:center}
+
+</style>
 </head>
 
 <body>
+<div id = "div1">
+<h1>{{n}} Group </h1>
+</div>
 <h2> Posts </h2>
-<div>
+<div id="div2">
 <form action = "{{url_for('group_page',name = n,post_activity = 2,user_id = user_id)}}" method = "post">
 <input type = "submit" name = "submit" value = "join group">
 </form>
 </div>
+<div id = "div3">
 <form action = "{{url_for('group_page',name = n,post_activity = 1,user_id = user_id)}}" method = "post">
 <input name = "to_post" type="text" placeholder = "share with us please">
 <br>
-<input name = "submit" type = "submit" value = "post">
+<br>
+<input id = "sub"name = "submit" type = "submit" value = "post">
 </form>
 {% for post in posts %}
-<p>{{post.content}}<p>
+{{post.content}}<br>
 {% endfor %}
-
+</div>
 </body>
 </html>
