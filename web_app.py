@@ -43,21 +43,25 @@ def after_sign_in(user_id):
 		_groups_list = []
 		for group in _group_user:
 			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
-		return render_template('after_sign_in.html', groups = _groups_list)
+		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'search')
 	else:
-		search()
-		pass
+		
+		return search(user_id)
+		
 	
 
-def search():
-	group_name = request.form['text1'].value
-	
+def search(user_id):
+	group_name = request.form['text1']
 	group = session.query(Group).filter_by(name = group_name).first()
 	if group==None:
-		request.form['text1'].value = ''
-		request.form['text1'].placeholder = 'no group by that name'
+		_group_user = session.query(GroupUser).filter_by(userID = user_id)
+		_groups = session.query(Group)
+		_groups_list = []
+		for group in _group_user:
+			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
+		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'no group by that name')
 	else:
-		redirect(url_for('group_page',name = group_name))
+		return redirect(url_for('group_page',name = group_name))
 		
 	
     
