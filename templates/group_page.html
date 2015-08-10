@@ -1,14 +1,20 @@
 <html>
 <head> 
 <title> {{n}} Group </title>
-Welcome to the {{n}} Group!
+<link rel=stylesheet type=text/css href="../static/group_page.css">
 </head>
 
 <body>
 <h2> Posts </h2>
-<form action = "{{url_for('group_page',name = name,post_activity = 1)}}" method = "post">
+<div>
+<form action = "{{url_for('group_page',name = n,post_activity = 2,user_id = user_id)}}" method = "post">
+<input type = "submit" name = "submit" value = "join group">
+</form>
+</div>
+<form action = "{{url_for('group_page',name = n,post_activity = 1,user_id = user_id)}}" method = "post">
 <input name = "to_post" type="text" placeholder = "share with us please">
-<input name = "submit" value = "post">
+<br>
+<input name = "submit" type = "submit" value = "post">
 </form>
 {% for post in posts %}
 <p>{{post.content}}<p>
