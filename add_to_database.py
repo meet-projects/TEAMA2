@@ -11,6 +11,3 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-group_user = GroupUser(userID = 2, groupID = 1)
-session.add(group_user)
-session.commit()

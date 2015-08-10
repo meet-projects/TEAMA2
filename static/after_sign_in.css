@@ -1,5 +1,26 @@
 body{
 	
+	font-family:"Times New Roman",Times, serif;	
 	text-align: center;
-	background-color: white;	
+	background-color: silver;	
 }
+
+table
+{
+	font-family:"Times New Roman",Times, serif;	
+	margin: 0 auto;
+}
+td{
+	font-size:120%
+
+}
+th{
+	font-size:200%
+}
+#upper_div{
+	background-color:#FF6666;
+	height:20px
+	
+}
+
+
