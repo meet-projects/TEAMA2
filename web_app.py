@@ -37,6 +37,9 @@ def after_sign_in():
         session.add(user)
         session.commit()
         return redirect(url_for('after_sign_in'))
+@app.route('/group/<string:name>/')
+def group_page(name):
+    return render_template("group_page.html",n=name)
     
     
     
