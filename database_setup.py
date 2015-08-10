@@ -18,6 +18,13 @@ class User(Base):
 	birthmonth = Column(String(30))
 	birthyear = Column(Integer)
 
+
+class Group(Base):
+        __tablename__= 'group'
+        id = Column(Integer,primary_key=True)
+        name = Column(String(50))
+        picture = Column(String)
+
 class Post(Base):
         __tablename__='post'
         id = Column(Integer,primary_key=True)
@@ -28,8 +35,10 @@ class Post(Base):
         content = Column(String(100))
         
 
-class Group(Base):
-        __tablename__= 'group'
-        id = Column(Integer,primary_key=True)
-        name = Column(String(50))
-        picture = Column(String)
+
+
+class GroupUser(Base):
+	__tablename__ = 'group_user'
+	id = Column(Integer, primary_key = True)
+	userID = Column(Integer)
+	groupID = Column(Integer)
