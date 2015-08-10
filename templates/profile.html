@@ -6,21 +6,21 @@
 <br>
 <table align='center'>
 	<tr>
-		<td>
+		<!--<td>
 			<input type="text">
 			<input type="submit" value="search">
-		</td>
+		</td>-->
 		<td></td>
-		<td>
-			<a href="Homepage.html">HomePage</a>
-		</td>
+		<!--<td>
+			<a href="{{url_for('after_sign_in',user_id = id_num)}}">HomePage</a>
+		</td>-->
 		<td></td>
-		<td>
+		<!--<td>
 			<a href="profile.html">Profile</a>
-		</td>
+		</td>-->
 		<td></td>
 		<td>
-			<a href="logout.html">Logout</a>
+			<a href="{{url_for('main')}}">Logout</a>
 		</td>
 		<td></td>
 	</tr>
@@ -43,8 +43,10 @@
 <br>
 
 
-<h3> Your problems: </h3>
-
+<h3> Your posts: </h3>
+{% for post in posts %}
+<p> {{posts.content}}</p>
+{%endfor %}
 
 
 

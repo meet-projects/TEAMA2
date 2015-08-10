@@ -29,12 +29,11 @@ class Post(Base):
         __tablename__='post'
         id = Column(Integer,primary_key=True)
         group_id = Column(Integer, ForeignKey('group.id'))
-        group= relationship(Group)
+        group = relationship(Group)
         user_poster_id = Column(Integer, ForeignKey('user.id'))
         user = relationship(User)
         content = Column(String(100))
         
-
 
 
 class GroupUser(Base):
