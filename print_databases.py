@@ -37,6 +37,7 @@ if __name__ == '__main__':
         row_format = ''.join(["{:>%d}" % length for length in max_lengths])
 
         # TODO this will break if the title name is too long OR the column
+
         # names are too short (unlikely but possible)
         header = row_format.format(*columns)
         width = len(header)
