@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Personal Home Page </title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='after_sign_in.css') }}">
+</head>
+
+<body>
+<div id = "upper_div">
+<form id = "form1" action = "{{url_for('after_sign_in',user_id = 0)}}" method = 'post'>
+
+<input name = "text1" id = "text1" type = "text" placeholder = "search">
+<input id = "submit" type = "submit" value = "search"> 
+</form>
+</div>
+<div>
+<table>
+
+{% for group in groups %}
+
+<tr> 
+
+<td>
+<a href = "{{url_for('group_page',name = group.name)}}">{{group.name}} </a>
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+</table>
+</div>
+
+
+
+
+
+
+</body>
+</html>
