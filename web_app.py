@@ -13,9 +13,17 @@ session = DBSession()
 
 
 #YOUR WEB APP CODE GOES HERE
-@app.route('/')
-def main():
-    return render_template('main_page.html')
+@app.route('/',methods = ['GET','POST'])
+def sign_in():
+	if request.method == 'GET':
+    		return render_template('main_page.html')
+	else:
+		users = session.query(User).filter_by(username = request.form['user_name'])
+		user = users.filter_by(password = request.form['password']).first()
+		if user == None:
+			return render_template('main_page.html')
+		else:
+			return redirect(url_for('after_sign_in', user_id = user.id))
 
 @app.route('/signup/', methods = ['GET','POST'])
 def signup():
