@@ -41,8 +41,7 @@ def signup():
         	user = User(name = _name,password = _password,username = _username,email = _email,birthday = _birthday,birthmonth = _birthmonth,birthyear = _birthyear)
         	session.add(user)
         	session.commit()
-        	return redirect(url_for('after_sign_in', user_
- = user.id))
+        	return redirect(url_for('after_sign_in', user_id = user.id))
 
 @app.route('/home/<int:user_id>', methods = ['GET','POST'])
 def after_sign_in(user_id):
@@ -52,7 +51,7 @@ def after_sign_in(user_id):
 		_groups_list = []
 		for group in _group_user:
 			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
-		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'search')
+		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'search', user_id=user_id)
 	else:
 		
 		return search(user_id)
@@ -68,22 +67,25 @@ def search(user_id):
 		_groups_list = []
 		for group in _group_user:
 			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
-		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'no group by that name')
+		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'no group by that name', user_id=user_id)
 	else:
-		return redirect(url_for('group_page',name = group_name))
+		return redirect(url_for('group_page',name = group_name, post_activity = 0))
 		
 	
     
-@app.route('/group/<string:name>/')
-def group_page(name):
-	group = session.query(Group).filter_by(name = name).first()
-	group_id = group.id
-	posts = session.query(Post).filter_by(group_id = group_id)
-    	return render_template("group_page.html",n=name,posts=posts)
+@app.route('/group/<string:name>/', methods = ['GET','POST'])
+def group_page(name,post_activity):
+	if request.method == 'GET':
+		group = session.query(Group).filter_by(name = name).first()
+		group_id = group.id
+		posts = session.query(Post).filter_by(group_id = group_id)
+	    	return render_template("group_page.html",n=name,posts=posts)
+	else:
+		pass
 
 @app.route('/profile/<int:id_num>/')
 def profile(id_num):
-	person_posts = session.query(Post).filter_by(user_poster_id = id_num)
+	person_posts = session.query(Post).filter_by(user_poster_id = id_num).first()
 	return render_template("profile.html", posts=person_posts,id_num = id_num)
     
     

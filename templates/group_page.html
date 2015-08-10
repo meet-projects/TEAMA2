@@ -6,6 +6,10 @@ Welcome to the {{n}} Group!
 
 <body>
 <h2> Posts </h2>
+<form action = "{{url_for('group_page',name = name,post_activity = 1)}}" method = "post">
+<input name = "to_post" type="text" placeholder = "share with us please">
+<input name = "submit" value = "post">
+</form>
 {% for post in posts %}
 <p>{{post.content}}<p>
 {% endfor %}

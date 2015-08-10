@@ -13,9 +13,17 @@ session = DBSession()
 
 
 #YOUR WEB APP CODE GOES HERE
-@app.route('/')
-def main():
-    return render_template('main_page.html')
+@app.route('/',methods = ['GET','POST'])
+def sign_in():
+	if request.method == 'GET':
+    		return render_template('main_page.html')
+	else:
+		users = session.query(User).filter_by(username = request.form['user_name'])
+		user = users.filter_by(password = request.form['password']).first()
+		if user == None:
+			return render_template('main_page.html')
+		else:
+			return redirect(url_for('after_sign_in', user_id = user.id))
 
 @app.route('/signup/', methods = ['GET','POST'])
 def signup():
@@ -43,27 +51,42 @@ def after_sign_in(user_id):
 		_groups_list = []
 		for group in _group_user:
 			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
-		return render_template('after_sign_in.html', groups = _groups_list)
+		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'search', user_id=user_id)
 	else:
-		search()
-		pass
+		
+		return search(user_id)
+		
 	
 
-def search():
-	group_name = request.form['text1'].value
-	
+def search(user_id):
+	group_name = request.form['text1']
 	group = session.query(Group).filter_by(name = group_name).first()
 	if group==None:
-		request.form['text1'].value = ''
-		request.form['text1'].placeholder = 'no group by that name'
+		_group_user = session.query(GroupUser).filter_by(userID = user_id)
+		_groups = session.query(Group)
+		_groups_list = []
+		for group in _group_user:
+			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
+		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'no group by that name', user_id=user_id)
 	else:
-		redirect(url_for('group_page',name = group_name))
+		return redirect(url_for('group_page',name = group_name, post_activity = 0))
 		
 	
     
-@app.route('/group/<string:name>/')
-def group_page(name):
-    return render_template("group_page.html",n=name)
+@app.route('/group/<string:name>/', methods = ['GET','POST'])
+def group_page(name,post_activity):
+	if request.method == 'GET':
+		group = session.query(Group).filter_by(name = name).first()
+		group_id = group.id
+		posts = session.query(Post).filter_by(group_id = group_id)
+	    	return render_template("group_page.html",n=name,posts=posts)
+	else:
+		pass
+
+@app.route('/profile/<int:id_num>/')
+def profile(id_num):
+	person_posts = session.query(Post).filter_by(user_poster_id = id_num).first()
+	return render_template("profile.html", posts=person_posts,id_num = id_num)
     
     
     

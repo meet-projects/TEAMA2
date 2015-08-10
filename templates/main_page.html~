@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>
-    Title for this Page Goes Here
+    Hug A Friend 
   </title>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-  
-  
+ 
+<link rel=stylesheet type=text/css href="../static/styles2.css">
+
+<h1> Hug A Friend  </h1> 
 </head>
 
 <body>
-<h1>Our MEET Y2 project</h1>
+<form action = "{{url_for('sign_in')}}" method = "post">
+<div id="div1">
+username:<input name = "user_name" type = "text" name = "username"/>  <br> <br> 
+password:<input name = "password"  type = "text" name = "password"/>  <br> <br> 
+<div id="div2"> <input type = "submit" value = "submit"/> </div>
+</div>
+</form>
 
-</body>
+
 
 
 </html>
