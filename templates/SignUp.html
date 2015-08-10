@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 <title>
 Sign up
 </title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+=======
+  <title>
+    Sign up
+  </title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+  
+  
+>>>>>>> 694800c6d2bf851f16f88a6869ecb668bc63c7ed
 </head>
 <body>
 <h1 style="text-align: center"> Hug a friend</h1>
 <!-- sign up:: -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 694800c6d2bf851f16f88a6869ecb668bc63c7ed
 <form action="{{url_for('signup')}}" method="post">
 <h2> Sign up: </h2>
 <table>
 <tr><td>
+<<<<<<< HEAD
 username:</td> <td><input type="text", name="username">
 </td></tr>
 <tr><td>
 password:</td> <td><input type="password", name="password">
+=======
+username:</td> <td><input type="text", name="username"> 
+</td></tr>
+<tr><td>
+password:</td> <td><input type="password", name="password"> 
+>>>>>>> 694800c6d2bf851f16f88a6869ecb668bc63c7ed
 </td> </tr>
 <tr><td>
 re-enter password:</td> <td> <input type="password", name="r-ps">
@@ -27,6 +47,7 @@ email:</td> <td> <input type="email", name="email">
 <tr><td>
 name:</td> <td> <input type="text", name="name">
 </td> </tr>
+<<<<<<< HEAD
 <tr><td>
 Birth-Date:
 </td>
@@ -45,6 +66,29 @@ Birth-Date:
 <option value="October">October</option>
 <option value="November">November</option>
 <option value="December">December</option>
+=======
+
+
+
+<tr><td>
+Birth-Date:
+</td> 
+<td>
+<select name="DOBMonth">
+	<option> - Month - </option>
+	<option value="January">January</option>
+	<option value="Febuary">Febuary</option>
+	<option value="March">March</option>
+	<option value="April">April</option>
+	<option value="May">May</option>
+	<option value="June">June</option>
+	<option value="July">July</option>
+	<option value="August">August</option>
+	<option value="September">September</option>
+	<option value="October">October</option>
+	<option value="November">November</option>
+	<option value="December">December</option>
+>>>>>>> 694800c6d2bf851f16f88a6869ecb668bc63c7ed
 </select>
 <select name="DOBDay">
 <option> - Day - </option>
@@ -134,7 +178,16 @@ Birth-Date:
 </table>
 <br>
 <input type="submit" value="sign-up">
+
+
 </form>
 <a href="{{url_for('main')}}">Cancel</a>
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 694800c6d2bf851f16f88a6869ecb668bc63c7ed
 </body>
 </html>
