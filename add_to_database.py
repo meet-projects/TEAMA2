@@ -11,6 +11,15 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-group_user = GroupUser(userID = 2, groupID = 1)
-session.add(group_user)
+
+group = Group(name = 'a')
+session.add(group)
+session.commit()
+
+group1 = Group(name = 'b')
+session.add(group1)
+session.commit()
+
+group2 = Group(name = 'c')
+session.add(group2)
 session.commit()

@@ -8,19 +8,27 @@
  
 <link rel=stylesheet type=text/css href="../static/styles2.css">
 
-<h1> Hug A Friend  </h1> 
 </head>
 
 <body>
+<div id = "div1">
+</div>
+<div id = "div2">
+<h1> Hug A Friend  </h1> 
+</div>
+<div id="div3">
 <form action = "{{url_for('sign_in')}}" method = "post">
-<div id="div1">
+
 username:<input name = "user_name" type = "text" name = "username"/>  <br> <br> 
 password:<input name = "password"  type = "text" name = "password"/>  <br> <br> 
-<div id="div2"> <input type = "submit" value = "submit"/> </div>
 </div>
+<div id="div4">
+ <input type = "submit" value = "submit"/> 
+
 </form>
-
-
+<br>
+<a href = "{{url_for('signup')}}"> Sign Up</a>
+</div>
 
 
 </html>

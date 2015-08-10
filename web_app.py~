@@ -69,19 +69,37 @@ def search(user_id):
 			_groups_list.append(_groups.filter_by( id = group.groupID).first()) 
 		return render_template('after_sign_in.html', groups = _groups_list,placeholder = 'no group by that name', user_id=user_id)
 	else:
-		return redirect(url_for('group_page',name = group_name, post_activity = 0))
+		return redirect(url_for('group_page',name = group_name, post_activity = 0,user_id = user_id))
 		
 	
     
-@app.route('/group/<string:name>/', methods = ['GET','POST'])
-def group_page(name,post_activity):
+@app.route('/group/<string:name>/<int:user_id>/<int:post_activity>', methods = ['GET','POST'])
+def group_page(name,post_activity,user_id):
 	if request.method == 'GET':
 		group = session.query(Group).filter_by(name = name).first()
 		group_id = group.id
 		posts = session.query(Post).filter_by(group_id = group_id)
-	    	return render_template("group_page.html",n=name,posts=posts)
+	    	return render_template("group_page.html",n=name,posts=posts,user_id = user_id)
 	else:
-		pass
+		if post_activity == 1:
+			return new_post(user_id,name)
+		if post_activity == 2:
+			return join_group(user_id,name)
+
+def join_group(user_id,name):
+	group = session.query(Group).filter_by(name = name).first()
+	group_user = GroupUser(userID = user_id, groupID = group.id)
+	session.add(group_user)
+	session.commit()	
+	return redirect(url_for('after_sign_in',user_id = user_id))
+
+def new_post(user_id,name):
+	content = request.form['to_post']
+	group_id = session.query(Group).filter_by(name = name).first().id
+	post = Post(user_poster_id = user_id, group_id = group_id,content = content)
+	session.add(post)
+	session.commit()
+	return redirect(url_for('group_page',name = name,user_id = user_id, post_activity = 0))
 
 @app.route('/profile/<int:id_num>/')
 def profile(id_num):

@@ -28,10 +28,8 @@ class Group(Base):
 class Post(Base):
         __tablename__='post'
         id = Column(Integer,primary_key=True)
-        group_id = Column(Integer, ForeignKey('group.id'))
-        group = relationship(Group)
-        user_poster_id = Column(Integer, ForeignKey('user.id'))
-        user = relationship(User)
+        group_id = Column(Integer)
+        user_poster_id = Column(Integer)
         content = Column(String(100))
         
 

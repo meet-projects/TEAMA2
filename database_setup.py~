@@ -18,21 +18,21 @@ class User(Base):
 	birthmonth = Column(String(30))
 	birthyear = Column(Integer)
 
-class Post(Base):
-        __tablename__='post'
-        id = Column(Integer,primary_key=True)
-        group_id = Column(Integer, ForeignKey('group.id'))
-        group= relationship(Group)
-        user_poster_id = Column(Integer, ForeignKey('user.id'))
-        user = relationship(User)
-        content = Column(String(100))
-        
 
 class Group(Base):
         __tablename__= 'group'
         id = Column(Integer,primary_key=True)
         name = Column(String(50))
         picture = Column(String)
+
+class Post(Base):
+        __tablename__='post'
+        id = Column(Integer,primary_key=True)
+        group_id = Column(Integer)
+        user_poster_id = Column(Integer)
+        content = Column(String(100))
+        
+
 
 class GroupUser(Base):
 	__tablename__ = 'group_user'

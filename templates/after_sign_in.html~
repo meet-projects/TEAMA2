@@ -6,9 +6,9 @@
 
 <body>
 <div id = "upper_div">
-<form id = "form1" action = "{{url_for('after_sign_in',user_id = 0)}}" method = 'post'>
+<form id = "form1" action = "{{url_for('after_sign_in',user_id = user_id)}}" method = 'post'>
 
-<input name = "text1" id = "text1" type = "text" placeholder = "search">
+<input name = "text1" id = "text1" type = "text" placeholder = "{{placeholder}}">
 <input id = "submit" type = "submit" value = "search"> 
 </form>
 </div>
@@ -20,7 +20,7 @@
 <tr> 
 
 <td>
-<a href = "{{url_for('group_page',name = group.name)}}">{{group.name}} </a>
+<a href = "{{url_for('group_page',name = group.name,user_id = user_id,post_activity = 0)}}">{{group.name}} </a>
 
 </td>
 

@@ -1,11 +1,13 @@
 /* Add your CSS Code here */
-h1 {text-align:center; font-style:oblique; font-size:50px;}
+h1 {text-align:center; font-style:oblique; font-size:50px; color:#000000}
 
 /*body {background-image: url('../static/hugafriend1.jpg') }*/
-body {background-color: white }
-#div1 {margin: auto; width:300px}
-#div2 {margin: auto; width:100px}
-.two {font-size:20px color:}
+body {background-color: silver }
+#div1{height: 100px; width:100%; background-color:#ff0000}
+#div2 {margin: auto; width:100%;}
+#div3 {margin: auto; width:300px;}
+#div4 {margin:auto; width:300px ; padding-left:15%}
+
 
 
 
