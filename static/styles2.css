@@ -1,12 +1,15 @@
 /* Add your CSS Code here */
-h1 {text-align:center; font-style:oblique; font-size:50px; color:#000000}
+h1 {text-align:center; font-style:oblique; font-size:50px; color:white;}
 
-/*body {background-image: url('../static/hugafriend1.jpg') }*/
-body {background-color: silver }
-#div1{height: 100px; width:100%; background-color:#ff0000}
-#div2 {margin: auto; width:100%;}
-#div3 {margin: auto; width:300px;}
-#div4 {margin:auto; width:300px ; padding-left:15%}
+#cover_photo {height:350px; width:100%; marign: 0px;}
+
+body {background-color: green }
+
+#usernam_password_div {margin: auto; width:300px;}
+
+#submit_button_div {margin: auto; width:100px;}
+
+#UVP_div {background-color:green; }
 
 
 
