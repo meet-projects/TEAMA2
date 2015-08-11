@@ -1,10 +1,21 @@
 
 body{
-	padding: 200px;
+	padding: 50px;
 	text-align: center;
 	background-color: white;	
 }
 
 table{
-	padding-left: 400px;
+	padding-left: 600px;
+}
+
+
+#grouphug_img{
+	width: 1200px;
+	height: 300px;
+	
+}
+
+#d1{
+	text-align:center;
 }
