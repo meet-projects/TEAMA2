@@ -101,10 +101,11 @@ def new_post(user_id,name):
 	session.commit()
 	return redirect(url_for('group_page',name = name,user_id = user_id, post_activity = 0))
 
-@app.route('/profile/<int:id_num>/')
-def profile(id_num):
-	person_posts = session.query(Post).filter_by(user_poster_id = id_num).first()
-	return render_template("profile.html", posts=person_posts,id_num = id_num)
+@app.route('/profile/<int:user_id>/')
+def profile(user_id):
+	person_posts = session.query(Post).filter_by(user_poster_id = user_id).first()
+	person=session.query(User).filter_by(id=user_id).first()
+	return render_template("profile.html", posts=person_posts,person=person)
 
 
 @app.route('/add group/<int:user_id>', methods=['GET','POST'])
