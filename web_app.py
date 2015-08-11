@@ -103,7 +103,7 @@ def new_post(user_id,name):
 
 @app.route('/profile/<int:user_id>/')
 def profile(user_id):
-	person_posts = session.query(Post).filter_by(user_poster_id = user_id).first()
+	person_posts = session.query(Post).filter_by(user_poster_id = user_id)
 	person=session.query(User).filter_by(id=user_id).first()
 	return render_template("profile.html", posts=person_posts,person=person)
 
@@ -111,7 +111,7 @@ def profile(user_id):
 @app.route('/add group/<int:user_id>', methods=['GET','POST'])
 def add_group(user_id):
 	if request.method == 'GET':
-		return render_template('add_group.html')
+		return render_template('add_group.html',user_id = user_id)
 	else:
 		name = request.form['group_name']
 		group = Group(name = name)
