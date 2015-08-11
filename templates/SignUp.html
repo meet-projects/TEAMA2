@@ -5,13 +5,17 @@
 <title>
 Sign up
 </title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='styles.css') }}">
 
 </head>
 <body>
-<h1 style="text-align: center"> Hug a friend</h1>
+<div id="d1">
+<img src="http://i.huffpost.com/gen/2409680/images/o-GROUP-HUG-facebook.jpg" id="grouphug_img">
+</div>
+<h1 style="text-align: center"> Hug a friend </h1>
 <!-- sign up:: -->
 <form action="{{url_for('signup')}}" method="post">
+<br>
 <h2> Sign up: </h2>
 <table>
 <tr><td>

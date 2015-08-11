@@ -33,5 +33,9 @@ body{background-color:silver}
 {{post.content}}<br>
 {% endfor %}
 </div>
+<div style="position:fixed;left:10px;bottom:10px;">
+<a  href="{{url_for('after_sign_in',user_id = user_id)}}">return</a>
+</div>
+
 </body>
 </html>
