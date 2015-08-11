@@ -111,7 +111,7 @@ def profile(user_id):
 @app.route('/add group/<int:user_id>', methods=['GET','POST'])
 def add_group(user_id):
 	if request.method == 'GET':
-		return render_template('add_group.html')
+		return render_template('add_group.html',user_id = user_id)
 	else:
 		name = request.form['group_name']
 		group = Group(name = name)
