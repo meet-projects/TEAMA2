@@ -103,9 +103,37 @@ def new_post(user_id,name):
 
 @app.route('/profile/<int:user_id>/')
 def profile(user_id):
+	person = session.query(User).filter_by(id=user_id).first()	
 	person_posts = session.query(Post).filter_by(user_poster_id = user_id)
-	person=session.query(User).filter_by(id=user_id).first()
 	return render_template("profile.html", posts=person_posts,person=person)
+
+@app.route('/updateprofile/<int:user_id>/',methods=['GET','POST'])
+def Update_profile(user_id):
+	user=session.query(User).filter_by(id=user_id).first()
+	if request.method == 'GET':
+		person = session.query(User).filter_by(id=user_id).first()
+		return render_template("update_profile.html", person=person)
+	else:
+		_name = request.form['name']
+        	_password = request.form['password']
+        	_username = request.form['username']
+        	_email = request.form['email']
+        	_birthday = request.form['DOBDay']
+        	_birthmonth = request.form['DOBMonth']
+        	_birthyear = request.form['DOBYear']
+
+        	user.name = _name
+		user.password=_password
+		user.username = _username
+		user.email = _email
+		user.birthday = _birthday
+		user.birthmonth = _birthmonth
+		user.birthyear = _birthyear
+		session.add(user)        	
+		session.commit()
+		return redirect(url_for('profile',user_id = user.id))
+
+	
 
 
 @app.route('/add group/<int:user_id>', methods=['GET','POST'])
