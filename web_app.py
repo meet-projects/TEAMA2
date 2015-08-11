@@ -105,7 +105,18 @@ def new_post(user_id,name):
 def profile(id_num):
 	person_posts = session.query(Post).filter_by(user_poster_id = id_num).first()
 	return render_template("profile.html", posts=person_posts,id_num = id_num)
-    
+
+
+@app.route('/add group/<int:user_id>', methods=['GET','POST'])
+def add_group(user_id):
+	if request.method == 'GET':
+		return render_template('add_group.html')
+	else:
+		name = request.form['group_name']
+		group = Group(name = name)
+  		session.add(group)
+		session.commit()
+		return redirect(url_for('after_sign_in',user_id = user_id))  
     
     
 
