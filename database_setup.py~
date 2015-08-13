@@ -22,8 +22,9 @@ class User(Base):
 class Group(Base):
         __tablename__= 'group'
         id = Column(Integer,primary_key=True)
-        name = Column(String(50))
+        name = Column(String)
         picture = Column(String)
+	description = Column(String)
 
 class Post(Base):
         __tablename__='post'

@@ -1,16 +1,18 @@
 <html>
 <head>
 <title> Add Group</title>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='add_group.css')}}">
 </head>
 <body>
-
+<h1 id = "header"> Add A Group</h1>
+<p id = "p1"><span id = "s1">C</span>reate a Group of Somthing that Upsets You</p>
+<div id = "d2">
 <form action="{{url_for('add_group',user_id = user_id)}}" method = 'post'>
 
-<input type="text" name = "group_name" placeholder = "What troubles you and your community"/>
-<input type="submit" name = "submit" value = "Add Group"/>
-
+<input id = "t1" type="text" name = "group_name" placeholder = "What troubles you and your community"/>
+<span><input id = "b1" type="submit" name = "submit" value = "Add Group"/></span>
 
 </form>
-
+</div>
 </body>
 </html>
