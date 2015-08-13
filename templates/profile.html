@@ -5,13 +5,33 @@
 </head>
 <body>
 
-<a href="{{url_for('Update_profile',user_id = person.id)}}">Update Your Profile</a>
-<div>
-<h3> Your posts: </h3>
+
+<div id="main">
+<table>
+<tr>
+<th> Your posts: </th>
+<th>                                                                   </th>
+<th> Your Information </th>
+</tr>
+<tr>
+<td>
 {% for posts in posts %}
 <p> {{posts.content}}</p>
 {%endfor %}
+</td>
+<td></td>
+<td>
+Username : {{person.username}}<br>
+Email : {{person.email}}<br>
+Name : {{person.name}}<br>
+Birthday : {{person.birthday}}//{{person.birthmonth}}//{{person.birthyear}}
+</td>
+</tr>
+</table>
 </div>
+
+<a href="{{url_for('Update_profile',user_id = person.id)}}">Update Your Profile</a>
+
 
 
 
