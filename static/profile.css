@@ -1,9 +1,22 @@
 body{
 	background-color:#9999CC
 }
-div{
+#main{
 	text-align:center;
 }
 a{
-	font-size:150%
+	font-size:100%;
+	padding-left:75%;
+	
+}
+th{
+	font-size:120%;
+}
+td{
+	text-align:center;
+}
+
+table{
+	margin: 0 auto;
+
 }
