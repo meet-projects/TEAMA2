@@ -147,7 +147,18 @@ def add_group(user_id):
 		session.commit()
 		return redirect(url_for('after_sign_in',user_id = user_id))  
     
-    
+@app.route('/update group/<int:user_id>/<string:name>')
+def update_group(user_id,name):
+	if request.method == 'GET':
+		return render_template('update_group.html',user_id = user_id,name = name)
+	else:
+		description = request.form['t1']
+		picture = request.form['t2']
+		group = session.query(Group).filter_by(name = name).first()
+		group.description = description
+		group.picture = picture
+		return url_for('group_page',user_id = user_id,name = name)
+
 
 
 
