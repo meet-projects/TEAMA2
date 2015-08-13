@@ -26,15 +26,15 @@ h3{
 #search_and_add{
 	text-align: center;
 }
-.your_groups{
+#your_groups{
 	font-size:150%
 }
 th{
 	font-size:190%
 }
-.profile{
-	font-size:120%
-	padding-left:90%
+#profile{
+	font-size:20px;
+	padding-left:90%;
 }
 
 

@@ -3,9 +3,9 @@ h1 {text-align:center; font-style:oblique; font-size:50px; color:white;}
 
 #cover_photo {height:200px; width:70%; margin:0 auto; display:block}
 
-body {background-color: #9999FF }
+body {background-color: #9999FF;text-align: center;}
 
-#username_password_div {margin:0 auto; width:50}
+#username_password_div {margin:0 auto; width:100%;}
 
 #submit_button_div {margin:0 auto; width:100px;}
 
