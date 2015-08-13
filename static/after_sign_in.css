@@ -2,7 +2,7 @@ body{
 	
 	font-family:"Times New Roman",Times, serif;	
 	text-align: center;
-	background-color: silver;	
+	background-color: #9999FF;	
 }
 
 table
@@ -14,13 +14,24 @@ td{
 	font-size:120%
 
 }
-th{
+h3{
 	font-size:200%
 }
 #upper_div{
-	background-color:#FF6666;
-	height:50px
+	background-color:#CC0066;
+	height:80px
+	text-align:center;
 	
 }
+#search_and_add{
+	text-align: center;
+}
+.your_groups{
+	font-size:150%
+}
+th{
+	font-size:190%
+}
+
 
 

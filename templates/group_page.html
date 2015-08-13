@@ -1,27 +1,28 @@
 <html>
 <head> 
 <title> {{n}} Group </title>
-<style type"text/css">
-h1{text-align:center}
-#div1{width:100%; background-color:#55ff55; height: 100px;padding-top:10px}
-h2{text-align:center}
-#div2{padding-left:90%}
-body{background-color:silver}
-#div3{margin:auto;width:300px;text-align:center}
-
-</style>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='group_page.css') }}">
 </head>
 
 <body>
+
 <div id = "div1">
 <h1>{{n}} Group </h1>
-</div>
-<h2> Posts </h2>
-<div id="div2">
+
 <form action = "{{url_for('group_page',name = n,post_activity = 2,user_id = user_id)}}" method = "post">
-<input type = "submit" name = "submit" value = "join group">
+<input type = "submit" name = "submit" value = "Join Group">
 </form>
+
 </div>
+
+<br>
+
+
+
+
+<h2> Posts </h2>
+
+
 <div id = "div3">
 <form action = "{{url_for('group_page',name = n,post_activity = 1,user_id = user_id)}}" method = "post">
 <input name = "to_post" type="text" placeholder = "share with us please">
@@ -29,12 +30,14 @@ body{background-color:silver}
 <br>
 <input id = "sub"name = "submit" type = "submit" value = "post">
 </form>
+
 {% for post in posts %}
 {{post.content}}<br>
 {% endfor %}
 </div>
-<div style="position:fixed;left:10px;bottom:10px;">
-<a  href="{{url_for('after_sign_in',user_id = user_id)}}">return</a>
+
+<div id="div4">
+<a href="{{url_for('after_sign_in',user_id = user_id)}}">Return</a>
 </div>
 
 </body>

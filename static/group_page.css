@@ -1,0 +1,33 @@
+
+h1{
+	text-align:center
+}
+
+#div1{
+	width:100%; 
+	background-color:#CC0066;
+	text-align:center; 
+	height: 120px;
+	padding-top:10px
+}
+
+h2{
+	text-align:center
+}
+
+body{
+	background-color:#9999FF
+}
+
+#div3{
+	margin:auto;
+	width:300px;
+	text-align:center
+}
+#div4{
+	position:fixed;
+	bottom:30px;
+	font-size:150%
+}
+
+

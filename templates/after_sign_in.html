@@ -1,41 +1,55 @@
 <html>
 <head>
-<title>Personal Home Page </title>
+<title>Your Home Page </title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='after_sign_in.css') }}">
 </head>
 
-<body> 
-<div id = "upper_div">
-<form id = "form1" action = "{{url_for('after_sign_in',user_id = user_id)}}" method = 'post'>
+<body>
+ 
+<div>
 
-
-
-<input name = "text1" id = "text1" type = "text" placeholder = "{{placeholder}}">
-<br>
-<input id = "submit" type = "submit" value = "search"> 
-</form>
-<a style = "padding-left:90%" href="{{url_for('add_group',user_id = user_id)}}">add group</a>
+<h3> Welcome to Your HomePage </h3>
 </div>
+<div  id = "upper_div">
+<table id="search_and_add">
+<form id = "form1" action = "{{url_for('after_sign_in',user_id = user_id)}}" method = 'post'>
+<tr>
+<td>
+<input name = "text1" id = "text1" type = "text" placeholder = "{{placeholder}}">
+</td>
+
+<td>
+<input id = "submit" type = "submit" value = "Search"> 
+</td>
+</tr>
+
+</form>
+<tr>
+<td>
+<a href="{{url_for('add_group',user_id =user_id)}}">Add A Group</a>
+</td>
+<td></td>
+</tr>
+</table>
+</div>
+<br><br>
 <div>
 <table>
-
-
+</div>
 <th> Your Groups </th>
-<br>
+
+<ul>
 {% for group in groups %}
 <tr> 
 
-<td>
-<a href = "{{url_for('group_page',name = group.name,user_id = user_id,post_activity = 0)}}">{{group.name}} </a>
+<td class="your_groups">
+
+<li><a href = "{{url_for('group_page',name = group.name,user_id = user_id,post_activity = 0)}}">{{group.name}} </a></li>
 <br>
-
-
 </td>
-
 </tr>
-
-
 {% endfor %}
+</ul>
 </table>
 </div>
 
