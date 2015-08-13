@@ -1,21 +1,31 @@
 
 body{
-	padding: 50px;
 	text-align: center;
-	background-color: white;	
+	background-color: #9999FF;
+	font-style: oblique;
+
 }
 
 table{
-	padding-left: 600px;
+	margin:auto;
 }
 
 
 #grouphug_img{
-	width: 1200px;
-	height: 300px;
+	
+	width: 60%;
+	height :100%;
+
+	margin: 0 auto;
 	
 }
 
+#sign{
+	color:white;
+}
+
 #d1{
+	margin: auto;
 	text-align:center;
+	height:150px;
 }
