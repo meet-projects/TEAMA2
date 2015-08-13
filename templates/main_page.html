@@ -6,7 +6,7 @@
 
 <title> Hug A Friend  </title>
  
-<!--<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles2.css') }}">-->
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles2.css') }}">
 <link rel=stylesheet type=text/css href="../static/styles2.css">
 
 
@@ -16,7 +16,7 @@
 
 
 <body>
-<!--< action = "{{url_for('sign_in')}}" method = "post">>-->
+<!-->-->
 <img src="../static/friends.jpg" alt="" id= "cover_photo">
 <h1> Hug A Friend  </h1> 
 
@@ -26,7 +26,7 @@
 </div>
 
 
-<form>
+<form action = "{{url_for('sign_in')}}" method = "post">
 <div id= username_password_div>
 <center>
 username:<input name= "user_name" type= "text" name= "username"/>  <br> <br> 
