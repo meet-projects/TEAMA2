@@ -1,15 +1,17 @@
 /* Add your CSS Code here */
 h1 {text-align:center; font-style:oblique; font-size:50px; color:white;}
 
-#cover_photo {height:350px; width:100%; marign: 0px;}
+#cover_photo {height:200px; width:70%; margin:0 auto; display:block}
 
-body {background-color: green }
+body {background-color: #9999FF }
 
-#usernam_password_div {margin: auto; width:300px;}
+#username_password_div {margin:0 auto; width:50}
 
-#submit_button_div {margin: auto; width:100px;}
+#submit_button_div {margin:0 auto; width:100px;}
 
-#UVP_div {background-color:green; }
+#UVP_div {background-color:#9999FF; width:700px; height:120px; margin:0 auto; font-size:27px; color: white}
+
+
 
 
 
