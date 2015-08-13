@@ -142,7 +142,7 @@ def add_group(user_id):
 		return render_template('add_group.html',user_id = user_id)
 	else:
 		name = request.form['group_name']
-		group = Group(name = name)
+		group = Group(name = name,description = '',picture ='')
   		session.add(group)
 		session.commit()
 		return redirect(url_for('after_sign_in',user_id = user_id))  
