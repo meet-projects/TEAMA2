@@ -9,7 +9,10 @@
 <div>
 
 <h3> Welcome to Your HomePage </h3>
+
+<a href="{{url_for('profile',user_id =user_id)}}" id="profile" >Your Profile</a> 
 </div>
+
 <div  id = "upper_div">
 <table id="search_and_add">
 <form id = "form1" action = "{{url_for('after_sign_in',user_id = user_id)}}" method = 'post'>
@@ -19,7 +22,8 @@
 </td>
 
 <td>
-<input id = "submit" type = "submit" value = "Search"> 
+<input id = "submit" type = "submit" value = "Search">
+
 </td>
 </tr>
 
@@ -32,6 +36,7 @@
 </tr>
 </table>
 </div>
+
 <br><br>
 <div>
 <table>
