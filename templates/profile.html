@@ -1,12 +1,13 @@
 <html>
 <head>
+<title> Your Profile </title>
 </head>
 <body>
 
-
+<a href="{{url_for('Update_profile',user_id = person.id)}}">Update Your Profile</a>
 
 <h3> Your posts: </h3>
-{% for post in posts %}
+{% for posts in posts %}
 <p> {{posts.content}}</p>
 {%endfor %}
 
